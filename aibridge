@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>올림텍(OLYMTECH) | AIBridge - 투명한 AI API 크라우드펀딩 플랫폼</title>
+    <!-- 폰트 및 아이콘 CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --primary-light: #eff6ff;
+            --secondary: #06b6d4;
+            --dark: #0f172a;
+            --gray-900: #0f172a;
+            --gray-800: #1e293b;
+            --gray-700: #334155;
+            --gray-600: #475569;
+            --gray-500: #64748b;
+            --gray-200: #e2e8f0;
+            --gray-100: #f8fafc;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', 'Plus Jakarta Sans', -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--gray-700);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* GNB Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            height: 48px;
+        }
+
+        .brand-logo svg {
+            height: 100%;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--gray-800);
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .header-cta {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.65rem 1.4rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .header-cta:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 6rem;
+            background: radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 40%),
+                        linear-gradient(180deg, var(--gray-100) 0%, #ffffff 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1.2rem;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--dark);
+            line-height: 1.25;
+            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+            word-break: keep-all;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            max-width: 780px;
+            margin: 0 auto 2.8rem;
+            word-break: keep-all;
+            font-weight: 400;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.95rem 2.2rem;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: var(--white);
+            color: var(--gray-800);
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gray-100);
+            border-color: var(--gray-500);
+        }
+
+        /* Interactive Dashboard Demo Section */
+        .dashboard-preview {
+            max-width: 1100px;
+            margin: 4rem auto 0;
+            background: var(--gray-900);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            text-align: left;
+        }
+
+        .dash-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .dash-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dash-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ef4444; }
+        .dot-yellow { background: #f59e0b; }
+        .dot-green { background: #10b981; }
+
+        .dash-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .dash-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.2rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .dash-card label {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .dash-card .value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #38bdf8;
+        }
+
+        /* Sections Common */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+            margin-bottom: 1rem;
+            word-break: keep-all;
+        }
+
+        .section-desc {
+            color: var(--gray-600);
+            font-size: 1.05rem;
+            word-break: keep-all;
+        }
+
+        /* Problem & Solution Grid */
+        .problem-solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .ps-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2.8rem 2.2rem;
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease;
+        }
+
+        .ps-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .ps-card.problem {
+            border-top: 5px solid #ef4444;
+        }
+
+        .ps-card.solution {
+            border-top: 5px solid var(--primary);
+            background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%);
+        }
+
+        .ps-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .problem .ps-icon {
+            background-color: #fef2f2;
+            color: #ef4444;
+        }
+
+        .solution .ps-icon {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+        }
+
+        .ps-card h3 {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1.2rem;
+        }
+
+        .ps-list {
+            list-style: none;
+        }
+
+        .ps-list li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--gray-700);
+            font-size: 0.98rem;
+        }
+
+        .ps-list li::before {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .problem .ps-list li::before {
+            content: "\f00d";
+            color: #ef4444;
+        }
+
+        .solution .ps-list li::before {
+            content: "\f00c";
+            color: var(--primary);
+        }
+
+        /* Core Features Grid */
+        .bg-light {
+            background-color: var(--gray-100);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(37, 99, 235, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .feature-card i {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        /* Sponsor Table & Notice Box */
+        .sponsor-table-wrapper {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+        }
+
+        .sponsor-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .sponsor-table th, .sponsor-table td {
+            padding: 1.2rem 1.6rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .sponsor-table th {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .sponsor-table td {
+            font-size: 0.95rem;
+            color: var(--gray-700);
+        }
+
+        .sponsor-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .notice-box {
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-left: 5px solid var(--primary);
+            padding: 1.8rem;
+            border-radius: var(--radius-md);
+        }
+
+        .notice-box h4 {
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .notice-box p {
+            color: var(--gray-700);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Timeline Roadmap */
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+        }
+
+        .roadmap-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            border-top: 5px solid var(--primary);
+            border-left: 1px solid var(--gray-200);
+            border-right: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .roadmap-phase {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .roadmap-card h4 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .roadmap-card p {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        /* Governance & Finance Summary */
+        .finance-card {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            color: var(--white);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .finance-item h4 {
+            color: #38bdf8;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .finance-item ul {
+            list-style: none;
+        }
+
+        .finance-item ul li {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            margin-bottom: 0.6rem;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .finance-item ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Modal Popup Styling */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            width: 90%;
+            max-width: 440px;
+            padding: 2.5rem 2rem;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: translateY(0);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray-500);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close-btn:hover {
+            color: var(--dark);
+        }
+
+        .modal-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1.2rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-desc {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            margin-bottom: 1.8rem;
+            line-height: 1.5;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.2rem;
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .contact-card:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .contact-card i {
+            font-size: 1.6rem;
+            width: 32px;
+            text-align: center;
+        }
+
+        .contact-card.instagram i { color: #e1306c; }
+        .contact-card.email i { color: var(--primary); }
+
+        .contact-info span {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--gray-500);
+            font-weight: 600;
+        }
+
+        .contact-info strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-900);
+            color: #94a3b8;
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-col p, .footer-col li {
+            font-size: 0.9rem;
+            margin-bottom: 0.6rem;
+            list-style: none;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.85rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .hero-title { font-size: 2.5rem; }
+            .nav-menu { display: none; }
+            .dash-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title { font-size: 2rem; }
+            .hero-desc { font-size: 1.05rem; }
+            .dash-grid { grid-template-columns: 1fr; }
+            .sponsor-table-wrapper { overflow-x: auto; }
+            .finance-card { padding: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- GNB Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="brand-logo" aria-label="OLYMTECH AIBridge">
+                <svg viewBox="0 0 520 120" width="180" height="42">
+                    <defs>
+                        <linearGradient id="pG" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#2563EB" />
+                            <stop offset="100%" stop-color="#06B6D4" />
+                        </linearGradient>
+                        <linearGradient id="aG" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#3B82F6" />
+                            <stop offset="100%" stop-color="#60A5FA" />
+                        </linearGradient>
+                    </defs>
+                    <g transform="translate(10, 10)">
+                        <path d="M 20,80 A 40,40 0 1,1 80,80" fill="none" stroke="url(#pG)" stroke-width="8" stroke-linecap="round" />
+                        <path d="M 30,75 C 30,45 70,45 70,75 C 70,95 30,95 30,75 Z" fill="none" stroke="url(#aG)" stroke-width="5" stroke-dasharray="6 3" />
+                        <circle cx="20" cy="80" r="6" fill="#2563EB" />
+                        <circle cx="50" cy="35" r="7" fill="#06B6D4" />
+                        <circle cx="80" cy="80" r="6" fill="#3B82F6" />
+                    </g>
+                    <g transform="translate(115, 42)">
+                        <text x="0" y="16" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="22" letter-spacing="3" fill="#0F172A">OLYMTECH</text>
+                        <text x="0" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="26" letter-spacing="0.5" fill="#2563EB">AI<tspan fill="#06B6D4">Bridge</tspan></text>
+                    </g>
+                </svg>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">비전 & 개요</a></li>
+                <li><a href="#problem" class="nav-link">해결 과제</a></li>
+                <li><a href="#features" class="nav-link">핵심 기능</a></li>
+                <li><a href="#model" class="nav-link">후원 체계</a></li>
+                <li><a href="#roadmap" class="nav-link">로드맵</a></li>
+            </ul>
+            <button class="header-cta" onclick="openSponsorModal()">
+                <i class="fa-solid fa-heart"></i> 개발자에게 후원하기
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="hero-container">
+            <div class="badge-pill">
+                <i class="fa-solid fa-shield-halved"></i> AI API 비용 조달 & 투명성 정산 플랫폼
+            </div>
+            <h1 class="hero-title">
+                AI 개발자와 후원자를 연결하는<br><span>신뢰 기반 크라우드펀딩, AIBridge</span>
+            </h1>
+            <p class="hero-desc">
+                AIBridge는 개인 및 소규모 개발팀의 AI API 비용 부담을 완화하고, 후원금이 실제 AI 모델 호출 및 개발 성과에 올바르게 사용되는지 투명하게 검증하는 플랫폼입니다.
+            </p>
+            <div class="hero-btns">
+                <button class="btn btn-primary" onclick="openSponsorModal()">
+                    <i class="fa-solid fa-heart"></i> 개발자에게 후원하기
+                </button>
+                <a href="#model" class="btn btn-outline"><i class="fa-solid fa-hand-holding-hand"></i> 후원 참여 방식 안내</a>
+            </div>
+
+            <!-- Dashboard Preview UI -->
+            <div class="dashboard-preview">
+                <div class="dash-header">
+                    <div class="dash-dots">
+                        <span class="dash-dot dot-red"></span>
+                        <span class="dash-dot dot-yellow"></span>
+                        <span class="dash-dot dot-green"></span>
+                    </div>
+                    <span style="font-size: 0.85rem; color: #94a3b8; font-family: monospace;">AIBridge API Credit Relay System v1.0</span>
+                </div>
+                <div class="dash-grid">
+                    <div class="dash-card">
+                        <label>현재 보유 AI 크레딧</label>
+                        <div class="value">1,250,000 CR</div>
+                    </div>
+                    <div class="dash-card">
+                        <label>이번 달 API 호출량</label>
+                        <div class="value" style="color: #34d399;">482,190 Tokens</div>
+                    </div>
+                    <div class="dash-card">
+                        <label>마일스톤 달성률</label>
+                        <div class="value" style="color: #f43f5e;">Phase 2 (85%)</div>
+                    </div>
+                </div>
+                <div style="font-size: 0.85rem; color: #cbd5e1; background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 6px; font-family: monospace;">
+                    > [Relay System] OpenAI & Claude API Key 암호화 완료.<br>
+                    > [Ledger Audit] 실시간 사용 내역 대시보드 동기화 성공.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem & Solution Section -->
+    <section id="problem">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle">Problem & Solution</span>
+                <h2 class="section-title">개발 비중은 높고, API 비용은 지속 발생합니다</h2>
+                <p class="section-desc">AI 서비스 출시 전 필수적인 모델 비교, 기능 검증, 초기 운영의 비용과 투명성 문제를 해결합니다.</p>
+            </div>
+
+            <div class="problem-solution-grid">
+                <div class="ps-card problem">
+                    <div class="ps-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <h3>기존 AI 개발의 한계</h3>
+                    <ul class="ps-list">
+                        <li>AI 모델 테스트 및 초동 서비스 운영 시 반복적인 API 비용 발생 부담</li>
+                        <li>일반 크라우드펀딩의 경우 후원금이 실제 AI 개발에 집행되었는지 후원자가 확인 불가</li>
+                        <li>지원 사업 및 클라우드 크레딧은 신청 자격, 기간, 사용 가능 모델의 제한성 존재</li>
+                    </ul>
+                </div>
+
+                <div class="ps-card solution">
+                    <div class="ps-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h3>AIBridge 혁신 솔루션</h3>
+                    <ul class="ps-list">
+                        <li>후원금을 현금이 아닌 플랫폼 내 AI API 전용 크레딧으로 배정</li>
+                        <li>플랫폼 API 중계 시스템으로 사용량 자동 집계 및 공개 대시보드 제공</li>
+                        <li>단계별 마일스톤 달성 확인 시 잔여 크레딧 분할 정산 지급</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="bg-light">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle">Core Platform Capabilities</span>
+                <h2 class="section-title">AIBridge의 핵심 기능</h2>
+                <p class="section-desc">개발자에게는 안정적인 테스트 환경을, 후원자에게는 신뢰성과 가치를 제공합니다.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <h3>API 중계 & 크레딧 환산</h3>
+                    <p>플랫폼이 외부 AI 제공사의 API 호출을 중계하여 개발자가 연동 모델 이용 시 실시간으로 크레딧을 자동 차감 관리합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-list-check"></i>
+                    <h3>단계별 에스크로 지급</h3>
+                    <p>펀딩 성립 후 초기 검증용 크레딧을 우선 배정하며, 사전 합의된 개발 마일스톤 달성 증빙 후 잔여분을 지급합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <h3>투명한 집행 대시보드</h3>
+                    <p>집계된 API 사용 내역, 비용, 개발 성과 보고서를 공개 대시보드로 후원자에게 신뢰성 있게 공유합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-comments"></i>
+                    <h3>일상 사용 자동 적립 (2단계)</h3>
+                    <p>일반 사용자의 다중 모델 AI 채팅 서비스 이용료 일부를 개발자 지원 재원으로 자동 적립합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-gift"></i>
+                    <h3>프로젝트 인센티브</h3>
+                    <p>후원자에게 단순 리워드를 넘어 얼리 액세스권, 서비스 이용권 등 실질적 참여 혜택을 제공합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-lock"></i>
+                    <h3>보안 & 민감정보 보호</h3>
+                    <p>API 키는 서버에서 암호화 관리하고, 대시보드에는 민감정보를 제외한 집계 통계만을 공개합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsorship & Governance Model Section -->
+    <section id="model">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle">Sponsorship Architecture</span>
+                <h2 class="section-title">투명한 후원 체계 및 토큰 정의</h2>
+                <p class="section-desc">지정후원과 공동후원으로 목적에 맞는 지원 경로를 선택할 수 있습니다.</p>
+            </div>
+
+            <div class="sponsor-table-wrapper">
+                <table class="sponsor-table">
+                    <thead>
+                        <tr>
+                            <th>구분</th>
+                            <th>지정후원자 (Direct Sponsorship)</th>
+                            <th>공동후원자 (Ecosystem Fund)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>후원 방식</b></td>
+                            <td>특정 AI 프로젝트를 지정하여 직접 후원</td>
+                            <td>AI 개발 생태계 전체 공동 기금 참여</td>
+                        </tr>
+                        <tr>
+                            <td><b>지원 대상</b></td>
+                            <td>지정된 개별 프로젝트 팀</td>
+                            <td>플랫폼 심사 기준에 의해 선정된 팀들</td>
+                        </tr>
+                        <tr>
+                            <td><b>사용 내역 공개</b></td>
+                            <td>해당 프로젝트 전용 API 사용 대시보드</td>
+                            <td>공동 기금 배분 및 전체 프로젝트 원장</td>
+                        </tr>
+                        <tr>
+                            <td><b>제공 인센티브</b></td>
+                            <td>프로젝트별 얼리 액세스 및 이용권</td>
+                            <td>플랫폼 공통 참여 인센티브</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="notice-box">
+                <h4><i class="fa-solid fa-circle-info"></i> 지원 토큰 및 크레딧의 명확한 정의</h4>
+                <p>
+                    토큰 및 크레딧은 플랫폼 내에서 후원 및 AI API 지원 규모를 표시하기 위한 <b>내부 관리 단위</b>이며, 현금 환급이나 투기성 투자상품이 아닙니다. 후원금은 사전 공개된 기준에 따라 내부 원장 기반 크레딧으로 대응되고, 실제 API 호출 비용 청구 시 정산 대조됩니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="bg-light">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle">Execution Roadmap</span>
+                <h2 class="section-title">단계별 검증 및 확장 일정</h2>
+                <p class="section-desc">철저한 검증 단계를 거쳐 단계별로 플랫폼을 완성해 나갑니다.</p>
+            </div>
+
+            <div class="roadmap-grid">
+                <div class="roadmap-card">
+                    <span class="roadmap-phase">1~2개월 차</span>
+                    <h4>요구사항 & 검증</h4>
+                    <p>개발자/후원자 인터뷰, 연동 조건 및 결제·환불 기준 수립.</p>
+                </div>
+                <div class="roadmap-card">
+                    <span class="roadmap-phase">3~4개월 차</span>
+                    <h4>MVP 시스템 구축</h4>
+                    <p>API 중계, 크레딧 차감 및 개발 보고 MVP 구현.</p>
+                </div>
+                <div class="roadmap-card">
+                    <span class="roadmap-phase">5~6개월 차</span>
+                    <h4>시범 펀딩 검증</h4>
+                    <p>소수 팀 시범 운영을 통한 에스크로 지급 및 인센티브 이행 검증.</p>
+                </div>
+                <div class="roadmap-card">
+                    <span class="roadmap-phase">7~12개월 차</span>
+                    <h4>정식 출시 & AI 채팅</h4>
+                    <p>플랫폼 정식 오픈 및 일반 사용자 AI 채팅 이용료 적립 도입.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Governance Section -->
+    <section id="governance">
+        <div class="section-container">
+            <div class="finance-card">
+                <div class="finance-item">
+                    <h4><i class="fa-solid fa-chart-pie"></i> 사업화 및 자금 구조</h4>
+                    <ul>
+                        <li><b>초기 소요 자금:</b> 1억 원 (개발비 5,000만, API/클라우드 1,500만 등)</li>
+                        <li><b>수익 모델:</b> 펀딩 수수료 → AI 채팅 이용료 → 기업 매칭 후원</li>
+                        <li><b>자금 분리:</b> 사업화 예산과 고객 후원금 원장 엄격 분리 관리</li>
+                    </ul>
+                </div>
+                <div class="finance-item">
+                    <h4><i class="fa-solid fa-shield-cat"></i> 정산 및 정책 관리</h4>
+                    <ul>
+                        <li><b>정산·환불:</b> 개발 지연/중단 시 미사용 크레딧 환불 매뉴얼 준비</li>
+                        <li><b>API 원장 대사:</b> 청구 내역과 플랫폼 중계 로그 간 이중 검수</li>
+                        <li><b>공동기금 배분:</b> 배분 알고리즘 및 심사 기준 투명 공개</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>OLYMTECH (올림텍)</h4>
+                <p>AI 개발자를 위한 투명한 AI API 크라우드펀딩 플랫폼 AIBridge 운영사</p>
+                <p style="margin-top: 1rem;"><i class="fa-solid fa-location-dot"></i> 대한민국 서울특별시 / 경기도</p>
+                <p><i class="fa-solid fa-envelope"></i> hcandoit1004@naver.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>주요 링크</h4>
+                <ul>
+                    <li><a href="#about" style="color: #94a3b8;">비전 & 개요</a></li>
+                    <li><a href="#problem" style="color: #94a3b8;">해결 과제</a></li>
+                    <li><a href="#features" style="color: #94a3b8;">핵심 기능</a></li>
+                    <li><a href="#model" style="color: #94a3b8;">후원 모델</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>보안 및 컴플라이언스</h4>
+                <p>• API Key 암호화 서버 관리</p>
+                <p>• 원장 이중 정산 매뉴얼 보유</p>
+                <p>• 내부 관리용 지원 토큰 구조</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 OLYMTECH Inc. All rights reserved.</p>
+            <p>Designed for GitHub Pages Deployment</p>
+        </div>
+    </footer>
+
+    <!-- 개발자 후원 연락처 모달 팝업 -->
+    <div class="modal-overlay" id="sponsorModal">
+        <div class="modal-card">
+            <button class="modal-close-btn" onclick="closeSponsorModal()">&times;</button>
+            <div class="modal-icon">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+            <h3 class="modal-title">개발자 후원 문의</h3>
+            <p class="modal-desc">AIBridge 프로젝트 및 개발자를 후원해 주셔서 감사합니다.<br>아래 채널로 편하게 문의주세요!</p>
+            
+            <div class="contact-list">
+                <a href="https://instagram.com/25woong" target="_blank" class="contact-card instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                    <div class="contact-info">
+                        <span>인스타그램 DM</span>
+                        <strong>@25woong</strong>
+                    </div>
+                </a>
+                <a href="mailto:hcandoit1004@naver.com" class="contact-card email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div class="contact-info">
+                        <span>이메일 문의</span>
+                        <strong>hcandoit1004@naver.com</strong>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 모달 스크립트 -->
+    <script>
+        function openSponsorModal() {
+            const modal = document.getElementById('sponsorModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSponsorModal() {
+            const modal = document.getElementById('sponsorModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // 모달 외부 영역 클릭 시 닫기
+        window.onclick = function(event) {
+            const modal = document.getElementById('sponsorModal');
+            if (event.target === modal) {
+                closeSponsorModal();
+            }
+        };
+    </script>
+
+</body>
+</html>
